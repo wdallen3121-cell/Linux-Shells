@@ -1,0 +1,43 @@
+# Linux Fundamentals 1
+
+## Writeup Overview
+This will cover background information about Linux
+
+## Objectives
+- Understand the reason Linux is used over other Operating systems
+- Identify the core operations that make Linux valuable 
+
+## Key Concepts
+| Linux | Operating system family. Built around the 'Linux Kernel'|
+|Distribution(distro) | A single full Linux OS. Built around a Linux kernel, such as Ubuntu, Fedora, Debian, Linux Mint, Arch |
+| Unix | Older OS family. Strongly influenced Linux |
+| Extensible | Capable of being expanded or added onto without 'rebuilding'. To support new functions, allow plugins/extensions or adapt to different uses |
+| Terminal | text-based interface. Used to interact with an OS through commands |
+| $ | Shell Prompt, for a regular user. Means a shell is ready |
+| echo | Command that 'prints' text(to the terminal). Used to display text, show variable values, test commands, write text(into files) |
+| whoami | Shows the username of the account a user is currently using |
+
+### Linux Overview
+- Strong control and customizaiton
+- 'Powerful' commandline
+- Popular in IT, networking, servers
+- Offer may distros for free
+- Considered more 'lightweight' than other OS
+- Linux is used in websites, car entertainment/control panels, PoS terminals
+- Linux is umbrella term(for multiple OS that are based on UNIX)
+- Open-source OS
+- Variants of Linux can be suited for specific systems(such as Ubuntu and Debian)
+- Often is used without a GUI
+- Most usage is through a terminal environment
+
+### Linux Variants
+- Ubuntu and Debian are considerd commonplace distributions
+- Ubuntu can be ran as a web/application server or as a Desktop
+- Ubuntu Server can run on systems with only (512MB of RAM)
+
+
+## Security Relevance
+- A large amount of modern systems run on Linux(web servers, cloud environments, containers, network appliances, security tools and IoT systems)
+- Many security tools run on Linux(nmap, tcpdump,wireshark, grep, awk, ssh, iptables, nftables, fail2ban, Snort, Suricata)
+- Used as a working environment for analysts, engineers, pentesters and admins
+
