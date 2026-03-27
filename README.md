@@ -7,6 +7,12 @@ This repository contains Linux Shell labs for various environments. These labs c
 ## Purpose
 The purpose of this repository is to document and demonstrate my technical ability through structured lab write-ups.
 
+## Objectives
+- Learn interaction with Linux shell
+- Use basic shell commands
+- Explore the types of available shells
+- Write shell scripts
+
 ## Environment
 - Windows Server 2019
 
