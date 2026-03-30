@@ -9,13 +9,14 @@ This lab will explore basic linux commands, usage and security relevance
 - Identify the syntax and purposes of the covered commands
 
 ## Key Concepts
-| Ubuntu |
-| shell |
-| echo | Display text or values in a terminal environment. Show the value of a variable. Write text into a file.
-| string |
+|| Ubuntu | Linux distro. OS built around Linux. Used for desktops, laptops, servers, cloud systems. | 
+| shell | Command interpreter. Program that takes text-based commands then tells OS to run them. Handles variables. Supports Scripting. Allows for use redirections(>) and pipes (|)|
+| echo | Display text or values in a terminal environment. Show the value of a variable. Write text into a file. |
+| string | Sequence of characters(letters, numbers, spaces, symbols) treated as a singular value. Used for names, messages, file paths, variables, command output. |
+| ls | Lists the contents of a directory. Used with flags such as: -l, -a, -la. Can show file details, hidden files. |
+| cat | Displays the contents of a file inside the terminal. Allows viewing of multiple files, creating a quick file and combining files. Allows quick inspection of files, logs, notes, configurations.
+| pwd | Print working directory. Shows full path of the directory a user is currently in. |
 
-## Environment
-Platform: Tryhackme.com
 
 ## Lab Walkthrough
 
@@ -49,7 +50,49 @@ tryhackme
 - command asked the system "which user am I currently logged in as?"
 - output details current logged-in username, which account commands are running under and current security based on the permissions of the user.
 - access to files and commands depend on the user privileges
-- 
+
+### Syntax: ls
+
+tryhackme@linux1:~$ ls
+'Important Files' 'My Documents' Notes Pictures
+
+- listed the items in the current directory "~"(Important Files, My documents, Notes, Pictures)
+
+### Syntax: ls -l
+
+tryhackme@linux1:~$ ls -l
+total 80
+-rw-rw-r-- 1 tryhackme tryhackme 65522 May 10  2021 access.log
+drwxr-xr-x 2 tryhackme tryhackme  4096 May 10  2021 folder1
+drwxr-xr-x 2 tryhackme tryhackme  4096 May 10  2021 folder2
+drwxr-xr-x 2 tryhackme tryhackme  4096 May 10  2021 folder3
+drwxr-xr-x 2 tryhackme tryhackme  4096 May 10  2021 folder4
+
+- -rw-rw-r--(file type and permissions)
+  - "-"(regular file)
+  - "rw-"(owner can read/write)
+  - "rw-"(group can read/write)
+  - "r--"(others can only read)
+- (1) hard link count
+- tryhackme(owner)
+- tryhackme(group)
+- 65522(size of the file in bytes)
+- May 10 2021(last time modified)
+- access.log(file name)
+- drwxr-xr-x(file and permissions)
+  - "d"(directory)
+  - "rwx"(owner can read/write/enter)
+  - "r-x"(group can read/enter)
+  - "r-x"(others can read/enter)
+- total 80(total disk space used by the listed entries in that directory listing
+- this output shows who owns the file, who can modify it
+- may indicate files or directories that are too broadly accessible
+
+### Syntax: ls -a
+
+tryhackme@linux1:~$ ls -a
+.   .Xauthority    .bash_logout  .cache    access.log  folder2  folder4
+..  .bash_history  .bashrc       .profile  folder1     folder3
 
 
 ## Security Relevance
