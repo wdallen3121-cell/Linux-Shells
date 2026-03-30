@@ -1,0 +1,55 @@
+# Linux Fundamentals 2
+
+## Lab Overview
+This lab will explore basic linux commands, usage and security relevance
+
+## Objectives
+- Understand the commands relevance to IT systems and their security
+- Learn how to use these commands in combination with other functions
+- Identify the syntax and purposes of the covered commands
+
+## Key Concepts
+| Ubuntu |
+| shell |
+| echo | Display text or values in a terminal environment. Show the value of a variable. Write text into a file.
+| string |
+
+## Environment
+Platform: Tryhackme.com
+
+## Lab Walkthrough
+
+### Syntax: echo
+
+tryhackme@linux1:~$ echo Hello
+Hello
+
+- tryhackme@linux1:~$(shell prompt)
+- tryhackme(represents the current user in the shell prompt)
+- "~"(means the curent directory is the user's home directory)
+- "$"(the current user is a regular user, has no admin privilege)
+- "echo Hello"(commanded the shell to print the word "hello")
+- "Hello" (the output of the command line "echo Hello")
+
+### Syntax: echo "Hello Friend!"
+
+tryhackme@linux1:~$ echo "Hello Friend!"
+Hello Friend!
+
+- echo printed the text inside the quotes
+- terminal showed Hello Friend!
+- quotes keep the text together as one string
+- quotes may be useful when strings include special characters or spaces 
+
+### Syntax: whoami
+
+tryhackme@linux1:~$ whoami
+tryhackme
+
+- command asked the system "which user am I currently logged in as?"
+- output details current logged-in username, which account commands are running under and current security based on the permissions of the user.
+- access to files and commands depend on the user privileges
+- 
+
+
+## Security Relevance
