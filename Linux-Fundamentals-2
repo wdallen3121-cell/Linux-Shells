@@ -9,13 +9,15 @@ This lab will explore basic linux commands, usage and security relevance
 - Identify the syntax and purposes of the covered commands
 
 ## Key Concepts
-|| Ubuntu | Linux distro. OS built around Linux. Used for desktops, laptops, servers, cloud systems. | 
+| Ubuntu | Linux distro. OS built around Linux. Used for desktops, laptops, servers, cloud systems. | 
 | shell | Command interpreter. Program that takes text-based commands then tells OS to run them. Handles variables. Supports Scripting. Allows for use redirections(>) and pipes (|)|
 | echo | Display text or values in a terminal environment. Show the value of a variable. Write text into a file. |
 | string | Sequence of characters(letters, numbers, spaces, symbols) treated as a singular value. Used for names, messages, file paths, variables, command output. |
 | ls | Lists the contents of a directory. Used with flags such as: -l, -a, -la. Can show file details, hidden files. |
 | cat | Displays the contents of a file inside the terminal. Allows viewing of multiple files, creating a quick file and combining files. Allows quick inspection of files, logs, notes, configurations.
 | pwd | Print working directory. Shows full path of the directory a user is currently in. |
+| find | locate files/directories based on name, type, size, permissions, owner, modification time. |
+
 
 
 ## Lab Walkthrough
@@ -94,5 +96,84 @@ tryhackme@linux1:~$ ls -a
 .   .Xauthority    .bash_logout  .cache    access.log  folder2  folder4
 ..  .bash_history  .bashrc       .profile  folder1     folder3
 
+- "."(current directory)
+- ".."(parent directory)
+- .bashrc, .profile, .bash_history(hiddenfiles)
+  - .bash_history(commands previously typed)
+  - .bashrc(shell configuration file)
+  - .profile(user environment/profile settings)
+  - .bash_logout(commands/actions when logging out)
+  - .Xauthority(related to graphical session authentication)
+  - .cache(cached data)
+- .cache(hidden directory)
+- access.log, folder1, folder2....(normal visible entries)
+- files beginning with "." are hidden(not secret) by default, in normal ls output
+
+### Syntax: cat todo.txt
+
+Tryhackme@linux1:~/Documents$ cat todo.txt
+Here's something important for me to do later!
+
+- cat command read the 'todo.txt' file and printed it's contents to the terminal
+
+### Syntax: pwd
+
+tryhackme@linux1:~/Documents$ pwd
+/home/ubuntu/Documents
+
+- "/"(root of the filesystem)
+- "home"(home directory area for users)
+- "ubuntu"(the user's home folder)
+- "Documents(the current folder)
+
+Syntax: find -name passwords.txt
+
+tryhackme@linux1:~$ find -name passwords.txt
+./folder1/passwords.txt
+
+- output shows the "find" command found 'password.txt' inside folder1
+- find(search for item)
+- "-name"(search for this specific string)
+
+### Syntax: wc -1 access.log
+
+tryhackme@linux1:~$ wc -l access.log
+244 access.log
+
+- counted the number of lines in access.log
+- file has (244) lines
+- "wc"(word count command)
+- "-l"(count lines
+- useful for quickly seeing how many entries are in a text file or log
+
+### Syntax: grep "81.143.211.90" access.log
+
+tryhackme@linux1:~$ grep "81.143.211.90" access.log
+81.143.211.90 - - [25/Mar/2021:11:17 + 0000] "GET / HTTP/1.1" 200 417 "-" "Mozilla/5.0 (Linux; Android 7.0; Moto G(4))"
+
+- grep command searched access.log, for the text "81.143.211.90"
+- found (1) maching line
+- [25/Mar/2021:11:17 +0000](date and time of the request)
+- GET / HTTP/1.1(client requested website root page "/"
+- 200(server responded successfully)
+- 417(size of the response in bytes)
+- "-"(no referrer code)
+- Mozilla/5.0...(user-agent string, describing client software/device)
+
+### Syntax: grep -R "PRETTY_NAME" /etc/
+
+grep -R "PRETTY_NAME" /etc/
+grep: /etc/sudoers: Permission denied
+/etc/os-release:PRETTY_NAME="Ubuntu"
+
+- grep searched through /etc/(recursively using the -R option), for the text "PRETTY_NAME"
+- found the character string in /etc/os-release
+- grep tried to read /etc/sudoers
+- current user does not have permission to read
+- skipped file
+- /etc(stores configuration files, OS info, services, users, networking, security settings)
 
 ## Security Relevance
+- These commands can be used for navigation and investigation
+- When looking through large amounts of information it could take a lot of time to search each line in a log.
+- It is best to isolate and investigate exactly what I am looking for. Commands such as grep  will allow me to look for specific informaiton
